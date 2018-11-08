@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addItem();">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label>Nome</ion-label>
+    <ion-input type="text" [(ngModel)]="name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Quantidade</ion-label>
+    <ion-input type="number" [(ngModel)]="number"></ion-input>
+  </ion-item>
+  <button ion-button block (click)="addItem2(name,number);">Salvar</button>
+
+  <ion-list>
+    <ion-item *ngFor="let item of itens | async" (click)="showOptions(item.id, item.itemName, item.itemNumber);">
+      {{item.itemName}}
+      <p>{{item.itemNumber}}</p>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
